@@ -9,15 +9,8 @@
     --onyx: #3c3d44;
     --charcoal: #343c47;
     --corners: 24px 0;
+    --corners-sm: 10px 0;
     --base-font-size: 1rem;
-}
-
-.flow > * + * {
-    margin-top: clamp(1rem, 4vw, 2rem);
-}
-
-.flow > * + .icons {
-    margin-top: clamp(1rem, 4vw, 2rem);
 }
 
 body {
@@ -142,6 +135,56 @@ footer .icons .social:hover {
     fill: var(--marina);
 }
 
+/* projects section */
+main {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.project {
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: var(--corners);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.project ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.project li {
+    background-color: var(--marina);
+    color: var(--white);
+    padding: 0.75rem 1rem;
+    border-radius: var(--corners-sm);
+    font-size: calc(var(--base-font-size) * 0.85);
+    text-box: trim-both cap alphabetic;
+    
+}
+
+.project img {
+    grid-row: 1/2;
+}
+
+.img-border {
+    border: 1px solid var(--onyx);
+}
+
+.projects {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 3rem;
+}
+
 @media (min-width: 750px) {
 
     :root {
@@ -179,4 +222,33 @@ footer .icons .social:hover {
     .footer-text {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .footer-text .icons {
+        grid-column: 1/4;
+    }
 }
+
+@media (min-width: 850px) {
+    main {
+        text-align: left;
+    }
+
+    .project {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project img {
+        grid-row: auto;
+    }
+
+    .project ul {
+        justify-content: flex-start;
+    }
+}
+
+.flow > * + *,
+.flow > * + .icons,
+.flow > * + ul {
+    margin-top: clamp(1rem, 4vw, 2rem);
+}
+
